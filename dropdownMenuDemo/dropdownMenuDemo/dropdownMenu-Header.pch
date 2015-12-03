@@ -1,0 +1,17 @@
+//
+//  dropdownMenu-Header.pch
+//  dropdownMenu
+//
+//  Created by 风往北吹_ on 15/11/11.
+//  Copyright © 2015年 wangxg. All rights reserved.
+//
+
+#ifndef dropdownMenu_Header_pch
+#define dropdownMenu_Header_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "GlobalConstant.h"
+
+#endif /* dropdownMenu_Header_pch */
