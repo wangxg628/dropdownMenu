@@ -31,12 +31,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="筛选1" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-g9-hRN">
-                                <rect key="frame" x="153" y="213" width="65" height="39"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="aUq-A9-Whg"/>
@@ -46,7 +40,4 @@
             <point key="canvasLocation" x="63" y="287"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="筛选1" width="13" height="7"/>
-    </resources>
 </document>
