@@ -12,7 +12,6 @@
 
 @required
 - (void)selectedFirstValue:(NSString *)first SecondValue:(NSString *)second;
-- (void)hideMenu;
 @end
 
 
@@ -22,7 +21,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
-- (void)showTableView:(NSInteger)index withShowItems:(NSArray *)showItems;
+- (void)showTableView:(NSInteger)index withShowItems:(NSArray *)showItems WithSelected:(NSString *)selected;
 - (void)hideTableView;
 
 @end

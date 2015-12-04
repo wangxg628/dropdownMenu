@@ -36,14 +36,16 @@
         m_frame = frame;
         _titles = titles;
         _menuItems = menuItems;
+        
+        _btnSelectedIndex = -1;
+        _btnIndexArray = [[NSMutableArray alloc] initWithCapacity:titles.count];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor purpleColor];
+
     self.view.frame = m_frame;
     
     [self.view addSubview:self.mask];
@@ -68,7 +70,16 @@
         CGRect frame = self.view.frame;
         frame.size.height = SCREEN_HEIGHT-m_frame.origin.y;
         self.view.frame = frame;
-        [_showList showTableView:index withShowItems:showItems];
+        
+        _btnSelectedIndex = index;
+        NSString *selected = @"0-0";
+        if (_btnIndexArray.count > index){
+            selected = [_btnIndexArray objectAtIndex:_btnSelectedIndex];
+        } else {
+            [_btnIndexArray addObject:selected];
+        }
+
+        [_showList showTableView:index withShowItems:showItems WithSelected:selected];
     }
 }
 
@@ -85,20 +96,12 @@
     
     NSString *index = [NSString stringWithFormat:@"%@-%@", first, second];
     [_btnIndexArray setObject:index atIndexedSubscript:_btnSelectedIndex];
-    [self p_returnSelectedLeftIndex:first RightIndex:second];
-}
-
-
-
-#pragma mark - private Methods
-
-- (void)p_returnSelectedLeftIndex:(NSString *)left RightIndex:(NSString *)right {
+    
     if (_delegate && [_delegate respondsToSelector:@selector(dropdownSelectedLeftIndex:RightIndex:)]) {
-        [_delegate performSelector:@selector(dropdownSelectedLeftIndex:RightIndex:) withObject:left withObject:right];
+        [_delegate performSelector:@selector(dropdownSelectedLeftIndex:RightIndex:) withObject:first withObject:second];
+        [self hideDropdownMenu];
     }
 }
-
-
 
 
 #pragma mark - getter and setter 

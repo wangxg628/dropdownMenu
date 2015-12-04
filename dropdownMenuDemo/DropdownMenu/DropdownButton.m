@@ -103,9 +103,11 @@ static CGFloat const   separatorLineWidth = 1;
         DropdownItem *item = (DropdownItem *)[self viewWithTag:index];
         item.imageView.transform = CGAffineTransformMakeRotation(angle);
         if (angle == 0) {
-            [item setBackgroundColor:[UIColor whiteColor]];
+            [item.titleLabel setTextColor:ColorWihtRGBA(68, 68, 68)];
+            [item.imageView setImage:[UIImage imageNamed:@"筛选2"]];
         } else {
-            [item setBackgroundColor:[UIColor colorWithRed:(221.0/255.0) green:(221.0/255.0) blue:(221.0/255.0) alpha:1.0f]];
+            [item.titleLabel setTextColor:ColorWihtRGBA(255, 128, 0)];
+            [item.imageView setImage:[UIImage imageNamed:@"筛选1"]];
         }
     }];
 }

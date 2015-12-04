@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BA19C0E1C11683E00248316 /* DropdownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA19C0C1C11683E00248316 /* DropdownItem.m */; settings = {ASSET_TAGS = (); }; };
 		3BF5006D1C10657A00780B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5006C1C10657A00780B5D /* main.m */; };
 		3BF500701C10657A00780B5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5006F1C10657A00780B5D /* AppDelegate.m */; };
 		3BF500731C10657A00780B5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF500721C10657A00780B5D /* ViewController.m */; };
@@ -16,17 +17,11 @@
 		3BF500931C10658500780B5D /* ConditionDoubleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF500841C10658500780B5D /* ConditionDoubleTableView.m */; settings = {ASSET_TAGS = (); }; };
 		3BF500941C10658500780B5D /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF500861C10658500780B5D /* DropdownButton.m */; settings = {ASSET_TAGS = (); }; };
 		3BF500951C10658500780B5D /* DropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF500881C10658500780B5D /* DropdownMenu.m */; settings = {ASSET_TAGS = (); }; };
-		3BF500961C10658500780B5D /* DropdownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5008B1C10658500780B5D /* DropdownItem.m */; settings = {ASSET_TAGS = (); }; };
-		3BF500971C10658500780B5D /* 下拉icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5008C1C10658500780B5D /* 下拉icon@2x.png */; settings = {ASSET_TAGS = (); }; };
-		3BF500981C10658500780B5D /* 下拉背景@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5008D1C10658500780B5D /* 下拉背景@2x.png */; settings = {ASSET_TAGS = (); }; };
-		3BF500991C10658500780B5D /* 下拉选择@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5008E1C10658500780B5D /* 下拉选择@2x.png */; settings = {ASSET_TAGS = (); }; };
-		3BF5009A1C10658500780B5D /* 定位@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5008F1C10658500780B5D /* 定位@2x.png */; settings = {ASSET_TAGS = (); }; };
-		3BF5009B1C10658500780B5D /* 筛选1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF500901C10658500780B5D /* 筛选1@2x.png */; settings = {ASSET_TAGS = (); }; };
-		3BF5009C1C10658500780B5D /* 筛选2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF500911C10658500780B5D /* 筛选2@2x.png */; settings = {ASSET_TAGS = (); }; };
-		3BF5009D1C10658500780B5D /* 筛选背景色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BF500921C10658500780B5D /* 筛选背景色@2x.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BA19C0C1C11683E00248316 /* DropdownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownItem.m; sourceTree = "<group>"; };
+		3BA19C0D1C11683E00248316 /* DropdownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownItem.h; sourceTree = "<group>"; };
 		3BF500681C10657A00780B5D /* dropdownMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dropdownMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF5006C1C10657A00780B5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BF5006E1C10657A00780B5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -43,15 +38,6 @@
 		3BF500861C10658500780B5D /* DropdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownButton.m; sourceTree = "<group>"; };
 		3BF500871C10658500780B5D /* DropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenu.h; sourceTree = "<group>"; };
 		3BF500881C10658500780B5D /* DropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenu.m; sourceTree = "<group>"; };
-		3BF5008A1C10658500780B5D /* DropdownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownItem.h; sourceTree = "<group>"; };
-		3BF5008B1C10658500780B5D /* DropdownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownItem.m; sourceTree = "<group>"; };
-		3BF5008C1C10658500780B5D /* 下拉icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉icon@2x.png"; sourceTree = "<group>"; };
-		3BF5008D1C10658500780B5D /* 下拉背景@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉背景@2x.png"; sourceTree = "<group>"; };
-		3BF5008E1C10658500780B5D /* 下拉选择@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下拉选择@2x.png"; sourceTree = "<group>"; };
-		3BF5008F1C10658500780B5D /* 定位@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位@2x.png"; sourceTree = "<group>"; };
-		3BF500901C10658500780B5D /* 筛选1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选1@2x.png"; sourceTree = "<group>"; };
-		3BF500911C10658500780B5D /* 筛选2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选2@2x.png"; sourceTree = "<group>"; };
-		3BF500921C10658500780B5D /* 筛选背景色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选背景色@2x.png"; sourceTree = "<group>"; };
 		3BF5009E1C10665200780B5D /* dropdownMenu-Header.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dropdownMenu-Header.pch"; sourceTree = "<group>"; };
 		3BF5009F1C10665C00780B5D /* GlobalConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstant.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,31 +99,16 @@
 		3BF500821C10658500780B5D /* DropdownMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3BA19C0C1C11683E00248316 /* DropdownItem.m */,
+				3BA19C0D1C11683E00248316 /* DropdownItem.h */,
 				3BF500831C10658500780B5D /* ConditionDoubleTableView.h */,
 				3BF500841C10658500780B5D /* ConditionDoubleTableView.m */,
 				3BF500851C10658500780B5D /* DropdownButton.h */,
 				3BF500861C10658500780B5D /* DropdownButton.m */,
 				3BF500871C10658500780B5D /* DropdownMenu.h */,
 				3BF500881C10658500780B5D /* DropdownMenu.m */,
-				3BF500891C10658500780B5D /* source */,
 			);
 			path = DropdownMenu;
-			sourceTree = "<group>";
-		};
-		3BF500891C10658500780B5D /* source */ = {
-			isa = PBXGroup;
-			children = (
-				3BF5008A1C10658500780B5D /* DropdownItem.h */,
-				3BF5008B1C10658500780B5D /* DropdownItem.m */,
-				3BF5008C1C10658500780B5D /* 下拉icon@2x.png */,
-				3BF5008D1C10658500780B5D /* 下拉背景@2x.png */,
-				3BF5008E1C10658500780B5D /* 下拉选择@2x.png */,
-				3BF5008F1C10658500780B5D /* 定位@2x.png */,
-				3BF500901C10658500780B5D /* 筛选1@2x.png */,
-				3BF500911C10658500780B5D /* 筛选2@2x.png */,
-				3BF500921C10658500780B5D /* 筛选背景色@2x.png */,
-			);
-			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,15 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF5007B1C10657A00780B5D /* LaunchScreen.storyboard in Resources */,
-				3BF500981C10658500780B5D /* 下拉背景@2x.png in Resources */,
-				3BF500991C10658500780B5D /* 下拉选择@2x.png in Resources */,
 				3BF500781C10657A00780B5D /* Assets.xcassets in Resources */,
-				3BF5009D1C10658500780B5D /* 筛选背景色@2x.png in Resources */,
-				3BF5009B1C10658500780B5D /* 筛选1@2x.png in Resources */,
 				3BF500761C10657A00780B5D /* Main.storyboard in Resources */,
-				3BF5009C1C10658500780B5D /* 筛选2@2x.png in Resources */,
-				3BF5009A1C10658500780B5D /* 定位@2x.png in Resources */,
-				3BF500971C10658500780B5D /* 下拉icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +184,7 @@
 				3BF500731C10657A00780B5D /* ViewController.m in Sources */,
 				3BF500941C10658500780B5D /* DropdownButton.m in Sources */,
 				3BF500701C10657A00780B5D /* AppDelegate.m in Sources */,
-				3BF500961C10658500780B5D /* DropdownItem.m in Sources */,
+				3BA19C0E1C11683E00248316 /* DropdownItem.m in Sources */,
 				3BF500951C10658500780B5D /* DropdownMenu.m in Sources */,
 				3BF500931C10658500780B5D /* ConditionDoubleTableView.m in Sources */,
 				3BF5006D1C10657A00780B5D /* main.m in Sources */,
@@ -374,6 +338,7 @@
 				3BF500811C10657A00780B5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

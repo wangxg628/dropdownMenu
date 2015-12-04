@@ -18,7 +18,7 @@
 
 @property (nonatomic, weak) id<DropdownMenuDelegate> delegate;
 
-@property (nonatomic, assign) NSInteger buttonIndexArray;
+- (void)hideDropdownMenu;
 
 - (instancetype)initDropdownMenuWithFrame:(CGRect)frame Menutitles:(NSArray *)titles MenuLists:(NSArray *)menuItems;
 

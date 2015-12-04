@@ -28,6 +28,7 @@ static NSInteger const maxRowCount = 8;
     BOOL m_isHidden;
     CGFloat totalHeight;
     NSInteger firstSelectedIndex;
+    NSInteger secondSelectedIndex;
 }
 
 // 数据
@@ -38,9 +39,8 @@ static NSInteger const maxRowCount = 8;
 
 // 控件
 @property (nonatomic, strong) UIView *handleView;
-
-@property (nonatomic, strong) UITableView *leftTableView;
-@property (nonatomic, strong) UITableView *rightTableView;
+@property (nonatomic, strong) UITableView *firstTableView;
+@property (nonatomic, strong) UITableView *secondTableView;
 
 @end
 
@@ -54,6 +54,10 @@ static NSInteger const maxRowCount = 8;
         m_Frame = frame;
         m_selectedIndex = -1;
         m_isHidden = YES;
+        totalHeight = 0;
+        
+        firstSelectedIndex = 0;
+        secondSelectedIndex = 0;
     }
     return self;
 }
@@ -61,20 +65,14 @@ static NSInteger const maxRowCount = 8;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.frame = CGRectMake(0, m_Frame.size.height, m_Frame.size.width, 0);
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.frame = CGRectMake(0, m_Frame.size.height, m_Frame.size.width, totalHeight);
     self.view.clipsToBounds = YES;
     
-    [self setupDropdownList];
+    [self.view addSubview:self.firstTableView];
+    [self.view addSubview:self.secondTableView];
+    [self.view addSubview:self.handleView];
     
     [self showAndHideList:YES];
-}
-
-- (void)setupDropdownList {
-    
-    [self.view addSubview:self.leftTableView];
-    [self.view addSubview:self.rightTableView];
-    [self.view addSubview:self.handleView];
 }
 
 - (void)showAndHideList:(BOOL)status {
@@ -97,21 +95,15 @@ static NSInteger const maxRowCount = 8;
 
 #pragma mark - Public Methods
 
-- (void)showTableView:(NSInteger)index withShowItems:(NSArray *)showItems {
-    
-    _showItems = nil;
-    _leftArray = nil;
-    _rightItems = nil;
-    _rightArray = nil;
-    
+- (void)showTableView:(NSInteger)index withShowItems:(NSArray *)showItems WithSelected:(NSString *)selected {
     _showItems = showItems;
     
     if (m_isHidden == YES || m_selectedIndex != index) {
-        [self showAndHideList:NO];
         
         m_selectedIndex = index;
-
+        [self showAndHideList:NO];
         [self p_hideList];
+        [self showLastSelectedLeft:selected];
         
         [UIView animateWithDuration:duration animations:^{
             [self p_showList];
@@ -123,13 +115,13 @@ static NSInteger const maxRowCount = 8;
 
 - (void)hideTableView {
 
-    [UIView animateWithDuration:duration animations:^{
-        [self p_hideList];
-    } completion:^(BOOL finish){
-        [self showAndHideList:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"hideMenu"
-                                                            object:[NSString stringWithFormat:@"%li",(long)m_selectedIndex]];
-    }];
+[UIView animateWithDuration:duration animations:^{
+    [self p_hideList];
+} completion:^(BOOL finish){
+    [self showAndHideList:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideMenu"
+                                                        object:[NSString stringWithFormat:@"%li",(long)m_selectedIndex]];
+}];
 }
 
 
@@ -137,9 +129,9 @@ static NSInteger const maxRowCount = 8;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if ([tableView isEqual:_leftTableView]) {
+    if ([tableView isEqual:_firstTableView]) {
         return _leftArray.count;
-    } else if ([tableView isEqual:_rightTableView]) {
+    } else if ([tableView isEqual:_secondTableView]) {
         return _rightArray.count;
     }
     return 0;
@@ -148,7 +140,7 @@ static NSInteger const maxRowCount = 8;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = nil;
-    if ([tableView isEqual:_leftTableView]) {
+    if ([tableView isEqual:_firstTableView]) {
         
         cell = [tableView dequeueReusableCellWithIdentifier:leftTableViewCellID];
         cell.textLabel.text = _leftArray[indexPath.row];
@@ -161,13 +153,21 @@ static NSInteger const maxRowCount = 8;
         cell.selectedBackgroundView = selectView;
         cell.backgroundColor = ColorWihtRGBA(235, 235, 235);
         
-    } else if ([tableView isEqual:_rightTableView]) {
+    } else if ([tableView isEqual:_secondTableView]) {
         
         cell = [tableView dequeueReusableCellWithIdentifier:rightTableViewCellID];
         cell.textLabel.text = _rightArray[indexPath.row];
-        
+
         cell.textLabel.font = TEXTFONT(13);
         cell.textLabel.textColor = ColorWihtRGBA(68, 68, 68);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        if (secondSelectedIndex == indexPath.row) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            cell.tintColor = [UIColor redColor];
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
     
     return cell;
@@ -175,18 +175,22 @@ static NSInteger const maxRowCount = 8;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ([tableView isEqual:_leftTableView]) {
+    if ([tableView isEqual:_firstTableView]) {
 
         if (_rightItems != nil && _rightItems.count > 0) {
             _rightArray = _rightItems[indexPath.row];
-            [_rightTableView reloadData];
+            firstSelectedIndex = indexPath.row;
+            [_secondTableView reloadData];
         } else {
+            firstSelectedIndex = 0;
             [self p_returnSelectedValue:indexPath.row];
+            [_firstTableView reloadData];
         }
-        firstSelectedIndex = indexPath.row;
         
-    } else if ([tableView isEqual:_rightTableView]) {
+    } else if ([tableView isEqual:_secondTableView]) {
+        secondSelectedIndex = indexPath.row;
         [self p_returnSelectedValue:indexPath.row];
+        [_secondTableView reloadData];
     }
 }
 
@@ -211,7 +215,7 @@ static NSInteger const maxRowCount = 8;
     
     // 列表
     totalHeight = cellWithHeight * cellRowCount;
-    _leftTableView.frame = CGRectMake(0, 0, m_Frame.size.width, totalHeight);
+    _secondTableView.frame = CGRectMake(0, 0, m_Frame.size.width, totalHeight);
     
     // 把手
     _handleView.frame = CGRectMake(0, totalHeight, m_Frame.size.width, handleHeight);
@@ -229,8 +233,8 @@ static NSInteger const maxRowCount = 8;
     
     // 列表
     totalHeight = cellWithHeight * cellRowCount;
-    _leftTableView.frame = CGRectMake(0, 0, m_Frame.size.width/2, totalHeight);
-    _rightTableView.frame = CGRectMake(m_Frame.size.width/2, 0, m_Frame.size.width/2, totalHeight);
+    _firstTableView.frame = CGRectMake(0, 0, m_Frame.size.width/2, totalHeight);
+    _secondTableView.frame = CGRectMake(m_Frame.size.width/2, 0, m_Frame.size.width/2, totalHeight);
     
     // 把手
     _handleView.frame = CGRectMake(0, totalHeight, m_Frame.size.width, handleHeight);
@@ -250,23 +254,26 @@ static NSInteger const maxRowCount = 8;
 
 - (void)p_hideList {
     
-    if (_showItems.count == 1) {
+    _leftArray = nil;
+    _rightItems = nil;
+    _rightArray = nil;
+    
+    if (_showItems.count == 1) {            // 不显示二级菜单(因为没有数据)
         
-        _rightTableView.hidden = YES;
-        _leftArray = _showItems[0];
+        _firstTableView.hidden = YES;
+        _rightArray = _showItems[0];
         
-        if (_leftArray.count > minRowCount && _leftArray.count < maxRowCount) {
-            [self p_layoutLeft:_leftArray.count];
-        } else if (_leftArray.count <= minRowCount) {
+        if (_rightArray.count > minRowCount && _rightArray.count < maxRowCount) {
+            [self p_layoutLeft:_rightArray.count];
+        } else if (_rightArray.count <= minRowCount) {
             [self p_layoutLeft:minRowCount];
-        } else if (_leftArray.count >= maxRowCount) {
+        } else if (_rightArray.count >= maxRowCount) {
             [self p_layoutLeft:maxRowCount];
         }
-        [_leftTableView reloadData];
+        [_secondTableView reloadData];
+    } else if (_showItems.count == 2) {     // 显示二级级菜单
         
-    } else if (_showItems.count == 2) {
-        
-        _rightTableView.hidden = NO;
+        _firstTableView.hidden = NO;
         _leftArray = _showItems[0];
         _rightItems = _showItems[1];
         
@@ -277,6 +284,7 @@ static NSInteger const maxRowCount = 8;
         } else if (_leftArray.count >= maxRowCount) {
             [self p_layoutRight:maxRowCount];
         }
+        [_firstTableView reloadData];
     }
     
     self.view.frame = CGRectMake(0, m_Frame.size.height, m_Frame.size.width, 0);
@@ -287,41 +295,64 @@ static NSInteger const maxRowCount = 8;
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(selectedFirstValue:SecondValue:)]) {
         NSInteger firstSelected = firstSelectedIndex > 0 ? firstSelectedIndex : 0;
-        NSString *firstIndex = [NSString stringWithFormat:@"%ld", firstSelected];
+        NSString *firstIndex = [NSString stringWithFormat:@"%li", (long)firstSelected];
         NSString *indexObj = [NSString stringWithFormat:@"%ld", (long)index];
         [self.delegate performSelector:@selector(selectedFirstValue:SecondValue:) withObject:firstIndex withObject:indexObj];
         [self hideTableView];
     }
 }
 
+//显示最后一次选中位置
+- (void)showLastSelectedLeft:(NSString *)selected {
+    
+    NSArray *selectedArray = [selected componentsSeparatedByString:@"-"];
+    NSString *left = [selectedArray objectAtIndex:0];
+    NSString *right = [selectedArray objectAtIndex:1];
+    
+    NSInteger leftIndex = [left intValue];
+    if (_leftArray.count > 0 && _rightItems.count <= 0) {
+        [_firstTableView reloadData];
+        NSIndexPath *leftSelectedIndexPath = [NSIndexPath indexPathForRow:leftIndex inSection:0];
+        [_firstTableView selectRowAtIndexPath:leftSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    firstSelectedIndex = leftIndex;
+    
+    NSInteger rightIndex = [right intValue];
+    if (rightIndex > 0) {
+        [_secondTableView reloadData];
+        NSIndexPath *rightSelectedIndexPath = [NSIndexPath indexPathForRow:rightIndex inSection:0];
+        [_secondTableView selectRowAtIndexPath:rightSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    secondSelectedIndex = rightIndex;
+}
 
 
 #pragma mark - getter and setter
 
-- (UITableView *)leftTableView {
+- (UITableView *)firstTableView {
     
-    if (!_leftTableView) {
-        _leftTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _leftTableView.backgroundColor = ColorWihtRGBA(243, 243, 243);
-        _leftTableView.dataSource = self;
-        _leftTableView.delegate = self;
-        _leftTableView.tableFooterView = [[UIView alloc] init];
-        [_leftTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:leftTableViewCellID];
+    if (!_firstTableView) {
+        _firstTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _firstTableView.backgroundColor = ColorWihtRGBA(243, 243, 243);
+        _firstTableView.dataSource = self;
+        _firstTableView.delegate = self;
+        _firstTableView.tableFooterView = [[UIView alloc] init];
+        [_firstTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:leftTableViewCellID];
     }
-    return _leftTableView;
+    return _firstTableView;
 }
 
-- (UITableView *)rightTableView {
+- (UITableView *)secondTableView {
     
-    if (!_rightTableView) {
-        _rightTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _rightTableView.backgroundColor = [UIColor whiteColor];
-        _rightTableView.dataSource = self;
-        _rightTableView.delegate = self;
-        _rightTableView.tableFooterView = [[UIView alloc] init];
-        [_rightTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:rightTableViewCellID];
+    if (!_secondTableView) {
+        _secondTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _secondTableView.backgroundColor = [UIColor whiteColor];
+        _secondTableView.dataSource = self;
+        _secondTableView.delegate = self;
+        _secondTableView.tableFooterView = [[UIView alloc] init];
+        [_secondTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:rightTableViewCellID];
     }
-    return _rightTableView;
+    return _secondTableView;
 }
 
 - (UIView *)handleView {
