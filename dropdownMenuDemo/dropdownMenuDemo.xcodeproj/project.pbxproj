@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3BA19C0E1C11683E00248316 /* DropdownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA19C0C1C11683E00248316 /* DropdownItem.m */; settings = {ASSET_TAGS = (); }; };
+		3BA19C991C118A7C00248316 /* WXGAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA19C981C118A7C00248316 /* WXGAlertView.m */; settings = {ASSET_TAGS = (); }; };
+		3BA19C9B1C118B0100248316 /* payType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19C9A1C118B0100248316 /* payType.xib */; settings = {ASSET_TAGS = (); }; };
+		3BA19CA01C118E2400248316 /* 支付宝@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19C9D1C118E2400248316 /* 支付宝@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CA11C118E2400248316 /* 选框1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19C9E1C118E2400248316 /* 选框1@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CA21C118E2400248316 /* 选框2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19C9F1C118E2400248316 /* 选框2@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CA41C118E4300248316 /* 删除icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19CA31C118E4300248316 /* 删除icon@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CA81C11958800248316 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA19CA71C11958800248316 /* Reveal.framework */; settings = {ASSET_TAGS = (); }; };
+		3BA19CBC1C11AA8200248316 /* UIButton+horizLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA19CBB1C11AA8200248316 /* UIButton+horizLayout.m */; settings = {ASSET_TAGS = (); }; };
+		3BA19CBF1C11AAC700248316 /* CustomControlController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA19CBE1C11AAC700248316 /* CustomControlController.m */; settings = {ASSET_TAGS = (); }; };
+		3BA19CC11C11AF1F00248316 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19CC01C11AF1F00248316 /* View.xib */; settings = {ASSET_TAGS = (); }; };
+		3BA19CC61C11B02E00248316 /* 关注@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19CC21C11B02E00248316 /* 关注@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CC71C11B02E00248316 /* 好评率@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19CC31C11B02E00248316 /* 好评率@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CC81C11B02E00248316 /* 收藏1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19CC41C11B02E00248316 /* 收藏1@2x.png */; settings = {ASSET_TAGS = (); }; };
+		3BA19CC91C11B02E00248316 /* 收藏2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA19CC51C11B02E00248316 /* 收藏2@2x.png */; settings = {ASSET_TAGS = (); }; };
 		3BF5006D1C10657A00780B5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5006C1C10657A00780B5D /* main.m */; };
 		3BF500701C10657A00780B5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5006F1C10657A00780B5D /* AppDelegate.m */; };
 		3BF500731C10657A00780B5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF500721C10657A00780B5D /* ViewController.m */; };
@@ -22,6 +36,23 @@
 /* Begin PBXFileReference section */
 		3BA19C0C1C11683E00248316 /* DropdownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownItem.m; sourceTree = "<group>"; };
 		3BA19C0D1C11683E00248316 /* DropdownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownItem.h; sourceTree = "<group>"; };
+		3BA19C971C118A7C00248316 /* WXGAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXGAlertView.h; sourceTree = "<group>"; };
+		3BA19C981C118A7C00248316 /* WXGAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXGAlertView.m; sourceTree = "<group>"; };
+		3BA19C9A1C118B0100248316 /* payType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = payType.xib; sourceTree = "<group>"; };
+		3BA19C9D1C118E2400248316 /* 支付宝@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "支付宝@2x.png"; sourceTree = "<group>"; };
+		3BA19C9E1C118E2400248316 /* 选框1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选框1@2x.png"; sourceTree = "<group>"; };
+		3BA19C9F1C118E2400248316 /* 选框2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选框2@2x.png"; sourceTree = "<group>"; };
+		3BA19CA31C118E4300248316 /* 删除icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除icon@2x.png"; sourceTree = "<group>"; };
+		3BA19CA71C11958800248316 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		3BA19CBA1C11AA8200248316 /* UIButton+horizLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+horizLayout.h"; sourceTree = "<group>"; };
+		3BA19CBB1C11AA8200248316 /* UIButton+horizLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+horizLayout.m"; sourceTree = "<group>"; };
+		3BA19CBD1C11AAC700248316 /* CustomControlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomControlController.h; sourceTree = "<group>"; };
+		3BA19CBE1C11AAC700248316 /* CustomControlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomControlController.m; sourceTree = "<group>"; };
+		3BA19CC01C11AF1F00248316 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		3BA19CC21C11B02E00248316 /* 关注@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关注@2x.png"; sourceTree = "<group>"; };
+		3BA19CC31C11B02E00248316 /* 好评率@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "好评率@2x.png"; sourceTree = "<group>"; };
+		3BA19CC41C11B02E00248316 /* 收藏1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "收藏1@2x.png"; sourceTree = "<group>"; };
+		3BA19CC51C11B02E00248316 /* 收藏2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "收藏2@2x.png"; sourceTree = "<group>"; };
 		3BF500681C10657A00780B5D /* dropdownMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dropdownMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF5006C1C10657A00780B5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BF5006E1C10657A00780B5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,15 +78,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA19CA81C11958800248316 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BA19C961C118A5C00248316 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				3BA19C9C1C118E2400248316 /* 懂车行-支付方式 */,
+				3BA19C9A1C118B0100248316 /* payType.xib */,
+				3BA19C971C118A7C00248316 /* WXGAlertView.h */,
+				3BA19C981C118A7C00248316 /* WXGAlertView.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		3BA19C9C1C118E2400248316 /* 懂车行-支付方式 */ = {
+			isa = PBXGroup;
+			children = (
+				3BA19CA31C118E4300248316 /* 删除icon@2x.png */,
+				3BA19C9D1C118E2400248316 /* 支付宝@2x.png */,
+				3BA19C9E1C118E2400248316 /* 选框1@2x.png */,
+				3BA19C9F1C118E2400248316 /* 选框2@2x.png */,
+			);
+			path = "懂车行-支付方式";
+			sourceTree = "<group>";
+		};
+		3BA19CB91C11A9E400248316 /* WXGButton */ = {
+			isa = PBXGroup;
+			children = (
+				3BA19CBA1C11AA8200248316 /* UIButton+horizLayout.h */,
+				3BA19CBB1C11AA8200248316 /* UIButton+horizLayout.m */,
+			);
+			path = WXGButton;
+			sourceTree = "<group>";
+		};
 		3BF5005F1C10657A00780B5D = {
 			isa = PBXGroup;
 			children = (
+				3BA19CC21C11B02E00248316 /* 关注@2x.png */,
+				3BA19CC31C11B02E00248316 /* 好评率@2x.png */,
+				3BA19CC41C11B02E00248316 /* 收藏1@2x.png */,
+				3BA19CC51C11B02E00248316 /* 收藏2@2x.png */,
+				3BA19CC01C11AF1F00248316 /* View.xib */,
+				3BA19CB91C11A9E400248316 /* WXGButton */,
+				3BA19C961C118A5C00248316 /* AlertView */,
 				3BF500821C10658500780B5D /* DropdownMenu */,
 				3BF5006A1C10657A00780B5D /* dropdownMenuDemo */,
 				3BF500691C10657A00780B5D /* Products */,
@@ -80,6 +150,8 @@
 				3BF500741C10657A00780B5D /* Main.storyboard */,
 				3BF500791C10657A00780B5D /* LaunchScreen.storyboard */,
 				3BF5006B1C10657A00780B5D /* Supporting Files */,
+				3BA19CBD1C11AAC700248316 /* CustomControlController.h */,
+				3BA19CBE1C11AAC700248316 /* CustomControlController.m */,
 			);
 			path = dropdownMenuDemo;
 			sourceTree = "<group>";
@@ -87,6 +159,7 @@
 		3BF5006B1C10657A00780B5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3BA19CA71C11958800248316 /* Reveal.framework */,
 				3BF5009F1C10665C00780B5D /* GlobalConstant.h */,
 				3BF5009E1C10665200780B5D /* dropdownMenu-Header.pch */,
 				3BF500771C10657A00780B5D /* Assets.xcassets */,
@@ -168,9 +241,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA19C9B1C118B0100248316 /* payType.xib in Resources */,
 				3BF5007B1C10657A00780B5D /* LaunchScreen.storyboard in Resources */,
 				3BF500781C10657A00780B5D /* Assets.xcassets in Resources */,
+				3BA19CA11C118E2400248316 /* 选框1@2x.png in Resources */,
+				3BA19CC11C11AF1F00248316 /* View.xib in Resources */,
+				3BA19CC91C11B02E00248316 /* 收藏2@2x.png in Resources */,
+				3BA19CA21C118E2400248316 /* 选框2@2x.png in Resources */,
+				3BA19CC71C11B02E00248316 /* 好评率@2x.png in Resources */,
 				3BF500761C10657A00780B5D /* Main.storyboard in Resources */,
+				3BA19CC61C11B02E00248316 /* 关注@2x.png in Resources */,
+				3BA19CC81C11B02E00248316 /* 收藏1@2x.png in Resources */,
+				3BA19CA01C118E2400248316 /* 支付宝@2x.png in Resources */,
+				3BA19CA41C118E4300248316 /* 删除icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,11 +266,14 @@
 			files = (
 				3BF500731C10657A00780B5D /* ViewController.m in Sources */,
 				3BF500941C10658500780B5D /* DropdownButton.m in Sources */,
+				3BA19C991C118A7C00248316 /* WXGAlertView.m in Sources */,
 				3BF500701C10657A00780B5D /* AppDelegate.m in Sources */,
 				3BA19C0E1C11683E00248316 /* DropdownItem.m in Sources */,
 				3BF500951C10658500780B5D /* DropdownMenu.m in Sources */,
 				3BF500931C10658500780B5D /* ConditionDoubleTableView.m in Sources */,
 				3BF5006D1C10657A00780B5D /* main.m in Sources */,
+				3BA19CBF1C11AAC700248316 /* CustomControlController.m in Sources */,
+				3BA19CBC1C11AA8200248316 /* UIButton+horizLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,9 +385,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dropdownMenuDemo",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/dropdownMenuDemo/dropdownMenu-Header.pch";
 				INFOPLIST_FILE = dropdownMenuDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = glodon.com.dropdownMenuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -311,9 +408,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/dropdownMenuDemo",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/dropdownMenuDemo/dropdownMenu-Header.pch";
 				INFOPLIST_FILE = dropdownMenuDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = glodon.com.dropdownMenuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
