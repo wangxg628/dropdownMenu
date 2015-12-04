@@ -37,7 +37,7 @@ static CGFloat const   separatorLineWidth = 1;
         for (int index = 0; index <buttonCount; ++index) {
             CGFloat itemWidth = CGRectGetWidth(self.frame)/buttonCount;
             CGRect itemFrame = CGRectMake(index *itemWidth, 0, itemWidth, CGRectGetHeight(self.frame));
-            UIImage *image = [UIImage imageNamed:@"筛选2"];
+            UIImage *image = [UIImage imageNamed:@"mark1"];
             DropdownItem *button = [[DropdownItem alloc] initWithFrame:itemFrame andTitle:titles[index] andImage:image];
             button.tag = buttonTag + index;
             [button addTarget:self action:@selector(onShowMenuAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -104,10 +104,10 @@ static CGFloat const   separatorLineWidth = 1;
         item.imageView.transform = CGAffineTransformMakeRotation(angle);
         if (angle == 0) {
             [item.titleLabel setTextColor:ColorWihtRGBA(68, 68, 68)];
-            [item.imageView setImage:[UIImage imageNamed:@"筛选2"]];
+            [item.imageView setImage:[UIImage imageNamed:@"mark1"]];
         } else {
             [item.titleLabel setTextColor:ColorWihtRGBA(255, 128, 0)];
-            [item.imageView setImage:[UIImage imageNamed:@"筛选1"]];
+            [item.imageView setImage:[UIImage imageNamed:@"mark2"]];
         }
     }];
 }
