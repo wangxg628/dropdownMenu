@@ -21,4 +21,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame WithDropdownButtonTitles:(NSArray *)titles;
 
+- (void)selectedItemIndex:(NSInteger)index title:(NSString *)title;
+
 @end

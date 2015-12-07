@@ -63,6 +63,12 @@ static CGFloat const   separatorLineWidth = 1;
     return self;
 }
 
+- (void)selectedItemIndex:(NSInteger)index title:(NSString *)title {
+    
+    DropdownItem *item = (DropdownItem *)[self viewWithTag:index + buttonTag];
+    item.titleLabel.text = title;
+}
+
 
 #pragma mark - event response
 

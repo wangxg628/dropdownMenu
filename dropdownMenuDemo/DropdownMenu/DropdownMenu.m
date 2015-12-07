@@ -92,13 +92,15 @@
 
 #pragma mark - ConditionDoubleTableViewDelegate 
 
-- (void)selectedFirstValue:(NSString *)first SecondValue:(NSString *)second {
+- (void)selectedFirstValues:(NSArray *)values withTitle:(NSString *)title {
     
-    NSString *index = [NSString stringWithFormat:@"%@-%@", first, second];
+    [_dropdownButton selectedItemIndex:_btnSelectedIndex title:title];
+    
+    NSString *index = [NSString stringWithFormat:@"%@-%@", values[0], values[1]];
     [_btnIndexArray setObject:index atIndexedSubscript:_btnSelectedIndex];
     
     if (_delegate && [_delegate respondsToSelector:@selector(dropdownSelectedLeftIndex:RightIndex:)]) {
-        [_delegate performSelector:@selector(dropdownSelectedLeftIndex:RightIndex:) withObject:first withObject:second];
+        [_delegate performSelector:@selector(dropdownSelectedLeftIndex:RightIndex:) withObject:values[0] withObject:values[1]];
         [self hideDropdownMenu];
     }
 }

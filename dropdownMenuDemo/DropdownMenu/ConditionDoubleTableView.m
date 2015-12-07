@@ -29,6 +29,8 @@ static NSInteger const maxRowCount = 8;
     CGFloat totalHeight;
     NSInteger firstSelectedIndex;
     NSInteger secondSelectedIndex;
+    
+    NSInteger clickIndex;
 }
 
 // 数据
@@ -162,7 +164,7 @@ static NSInteger const maxRowCount = 8;
         cell.textLabel.textColor = ColorWihtRGBA(68, 68, 68);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        if (secondSelectedIndex == indexPath.row) {
+        if (secondSelectedIndex == indexPath.row && firstSelectedIndex == clickIndex) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             cell.tintColor = [UIColor redColor];
         } else {
@@ -179,7 +181,7 @@ static NSInteger const maxRowCount = 8;
 
         if (_rightItems != nil && _rightItems.count > 0) {
             _rightArray = _rightItems[indexPath.row];
-            firstSelectedIndex = indexPath.row;
+            clickIndex = indexPath.row;
             [_secondTableView reloadData];
         } else {
             firstSelectedIndex = 0;
@@ -188,6 +190,7 @@ static NSInteger const maxRowCount = 8;
         }
         
     } else if ([tableView isEqual:_secondTableView]) {
+        firstSelectedIndex = clickIndex;
         secondSelectedIndex = indexPath.row;
         [self p_returnSelectedValue:indexPath.row];
         [_secondTableView reloadData];
@@ -293,11 +296,13 @@ static NSInteger const maxRowCount = 8;
 //返回选中位置
 - (void)p_returnSelectedValue:(NSInteger)index {
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedFirstValue:SecondValue:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedFirstValues:withTitle:)]) {
         NSInteger firstSelected = firstSelectedIndex > 0 ? firstSelectedIndex : 0;
         NSString *firstIndex = [NSString stringWithFormat:@"%li", (long)firstSelected];
         NSString *indexObj = [NSString stringWithFormat:@"%ld", (long)index];
-        [self.delegate performSelector:@selector(selectedFirstValue:SecondValue:) withObject:firstIndex withObject:indexObj];
+        NSArray *values = @[firstIndex,indexObj];
+        NSString *title = _rightArray[index];
+        [self.delegate performSelector:@selector(selectedFirstValues:withTitle:) withObject:values withObject:title];
         [self hideTableView];
     }
 }
@@ -310,19 +315,9 @@ static NSInteger const maxRowCount = 8;
     NSString *right = [selectedArray objectAtIndex:1];
     
     NSInteger leftIndex = [left intValue];
-    if (_leftArray.count > 0 && _rightItems.count <= 0) {
-        [_firstTableView reloadData];
-        NSIndexPath *leftSelectedIndexPath = [NSIndexPath indexPathForRow:leftIndex inSection:0];
-        [_firstTableView selectRowAtIndexPath:leftSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }
     firstSelectedIndex = leftIndex;
     
     NSInteger rightIndex = [right intValue];
-    if (rightIndex > 0) {
-        [_secondTableView reloadData];
-        NSIndexPath *rightSelectedIndexPath = [NSIndexPath indexPathForRow:rightIndex inSection:0];
-        [_secondTableView selectRowAtIndexPath:rightSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }
     secondSelectedIndex = rightIndex;
 }
 

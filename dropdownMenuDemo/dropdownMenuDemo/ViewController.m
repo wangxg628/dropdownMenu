@@ -9,9 +9,6 @@
 #import "ViewController.h"
 #import "DropdownMenu.h"
 
-#import "WXGAlertView.h"
-#import "UIButton+horizLayout.h"
-
 @interface ViewController ()<DropdownMenuDelegate>
 
 @property (nonatomic, strong) DropdownMenu *dropdownMenu;
@@ -24,10 +21,6 @@
     [super viewDidLoad];
     
     [self setupDropdownMenu];
-    
-    [self setupAlertView];
-    
-    [self setupButtonLayout];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,12 +33,6 @@
     
     self.title = @"下拉菜单";
     self.view.backgroundColor = [UIColor yellowColor];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(30, 150, 150, 35);
-    button.backgroundColor = [UIColor orangeColor];
-    [button addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
     
     NSArray *leftItem1 = @[@"全部",@"易车生活洗车",@"店面代金券",@"人工普洗",@"人工精洗",@"电脑普洗",@"电脑精洗"];
     NSArray *leftItem2 = @[@"全部",@"通用品牌",@"现代专用"];
@@ -78,36 +65,6 @@
     NSLog(@"%@, %@", left, right);
 }
 
-
-- (void)setupAlertView {
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 10, SCREEN_WIDTH, 40);
-    [button setTitle:@"弹出选择框" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-}
-
-
-- (void)onClick {
-    
-    CGRect frame = CGRectMake((SCREEN_WIDTH-275)/2, (SCREEN_HEIGHT-148)/2, 275, 148);
-    WXGAlertView *alertView = [[WXGAlertView alloc] initWithFrame:frame];
-    [alertView showWindow:^(WXGAlertView *alertView) {
-        NSLog(@"测试");
-    }];
-}
-
-- (void)setupButtonLayout {
-    
-    UIButton *button1 = [UIButton customButtonWithType:WXGButtonTypeDefault];
-    button1.frame = CGRectMake(30, 150, 100, 100);
-    button1.backgroundColor = [UIColor redColor];
-    [button1 setTitle:@"水平按钮" forState:UIControlStateNormal];
-    [button1 setImage:[UIImage imageNamed:@"定位"] forState:UIControlStateNormal];
-    [self.view addSubview:button1];
-}
 
 
 @end

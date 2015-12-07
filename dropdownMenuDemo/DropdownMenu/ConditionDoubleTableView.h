@@ -11,7 +11,7 @@
 @protocol ConditionDoubleTableViewDelegate <NSObject>
 
 @required
-- (void)selectedFirstValue:(NSString *)first SecondValue:(NSString *)second;
+- (void)selectedFirstValues:(NSArray *)values withTitle:(NSString *)title;
 @end
 
 
