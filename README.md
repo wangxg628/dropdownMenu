@@ -3,4 +3,4 @@
 
 效果图：
 
-http://7xnh5e.com1.z0.glb.clouddn.com/dropdownMenu.gif
+description](http://7xnh5e.com1.z0.glb.clouddn.com/dropdownMenu.gif)
